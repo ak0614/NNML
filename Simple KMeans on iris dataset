@@ -1,0 +1,21 @@
+#KMeans
+#Adithya k
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+iris=load_iris()
+x=iris.data[:,[2,3]]
+y=iris.target
+cluster=[1,2,3,4,5,6,7,8,9,10]
+wcss=[]
+for i in cluster:
+  kmeans=KMeans(n_clusters=i,init='k-means++',random_state=42)
+  kmeans.fit(x)
+  wcss.append(kmeans.inertia_)
+plt.plot(wcss)
+plt.show()
+kmeans=KMeans(n_clusters=4,init='k-means++',random_state=42)
+kmeans.fit(x)
+plt.scatter(x[y==0,0],x[y==0,1])
+plt.scatter(x[y==1,0],x[y==1,1])
+plt.scatter(x[y==2,0],x[y==2,1])
