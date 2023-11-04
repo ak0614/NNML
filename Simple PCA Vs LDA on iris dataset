@@ -1,0 +1,17 @@
+#PCA VS LDA
+#Adithya k
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+Iris=load_iris()
+x=Iris.data
+y=Iris.target
+pca=PCA(n_components=2)
+x_pca=pca.fit_transform(x)
+plt.scatter(x_pca[:,0],x_pca[:,1],c=y)
+plt.show()
+lda=LinearDiscriminantAnalysis()
+x_lda=lda.fit_transform(x,y)
+plt.scatter(x_lda[:,0],x_lda[:,1],c=y)
+plt.show()
