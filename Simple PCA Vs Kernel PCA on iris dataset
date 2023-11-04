@@ -1,0 +1,16 @@
+#PCA VS KERNELPCA
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.decomposition import PCA,KernelPCA
+Iris=load_iris()
+x=Iris.data
+y=Iris.target
+pca=PCA(n_components=2)
+x_pca=pca.fit_transform(x)
+plt.scatter(x_pca[:,0],x_pca[:,1],c=y)
+plt.show()
+Iris=load_iris()
+kpca=KernelPCA(n_components=2,kernel='poly')
+x_kpca=kpca.fit_transform(x)
+plt.scatter(x_kpca[:,0],x_kpca[:,1],c=y)
+plt.show()
