@@ -1,0 +1,13 @@
+#SOM
+#Adithya k
+from sklearn_som.som import SOM
+from sklearn.datasets import load_diabetes
+iris=load_diabetes()
+x=iris.data[:,[2,3]]
+y=iris.target
+som=SOM(m=3,n=1,dim=2)
+som.fit(x)
+pred=som.predict(x)
+plt.scatter(x[pred==0,0],x[pred==0,1])
+plt.scatter(x[pred==1,0],x[pred==1,1])
+plt.scatter(x[pred==2,0],x[pred==2,1])
